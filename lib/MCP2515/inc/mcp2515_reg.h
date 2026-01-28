@@ -23,21 +23,21 @@ extern "C" {
  * ============================================================================
  * Reference: MCP2515 datasheet - SPI instructions
  */
-#define MCP2515_CMD_RESET          (0xC0U)
-#define MCP2515_CMD_READ           (0x03U)
-#define MCP2515_CMD_WRITE          (0x02U)
-#define MCP2515_CMD_BIT_MODIFY     (0x05U)
-#define MCP2515_CMD_READ_STATUS    (0xA0U)
-#define MCP2515_CMD_RX_STATUS      (0xB0U)
+#define MCP2515_CMD_RESET           0xC0U
+#define MCP2515_CMD_READ            0x03U
+#define MCP2515_CMD_WRITE           0x02U
+#define MCP2515_CMD_BIT_MODIFY      0x05U
+#define MCP2515_CMD_READ_STATUS     0xA0U
+#define MCP2515_CMD_RX_STATUS       0xB0U
 
 /* Load TX buffer instructions (base + modifiers) */
-#define MCP2515_CMD_LOAD_TX_BUF    (0x40U)
+#define MCP2515_CMD_LOAD_TX_BUF     0x40U
 
 /* Request-To-Send instructions (base + modifiers) */
-#define MCP2515_CMD_RTS            (0x80U)
+#define MCP2515_CMD_RTS             0x80U
 
 /* Read RX buffer instructions (base + modifiers) */
-#define MCP2515_CMD_READ_RX_BUF    (0x90U)
+#define MCP2515_CMD_READ_RX_BUF     0x90U
 
 
 /* ============================================================================
@@ -45,20 +45,20 @@ extern "C" {
  * ============================================================================
  * Reference: MCP2515 datasheet - Register Map
  */
-#define MCP2515_REG_CANSTAT        (0x0EU)
-#define MCP2515_REG_CANCTRL        (0x0FU)
+#define MCP2515_REG_CANSTAT         0x0EU
+#define MCP2515_REG_CANCTRL         0x0FU
 
-#define MCP2515_REG_CNF3           (0x28U)
-#define MCP2515_REG_CNF2           (0x29U)
-#define MCP2515_REG_CNF1           (0x2AU)
+#define MCP2515_REG_CNF3            0x28U
+#define MCP2515_REG_CNF2            0x29U
+#define MCP2515_REG_CNF1            0x2AU
 
-#define MCP2515_REG_CANINTE        (0x2BU)
-#define MCP2515_REG_CANINTF        (0x2CU)
+#define MCP2515_REG_CANINTE         0x2BU
+#define MCP2515_REG_CANINTF         0x2CU
 
-#define MCP2515_REG_EFLG           (0x2DU)
+#define MCP2515_REG_EFLG            0x2DU
 
-#define MCP2515_REG_TEC            (0x1CU)
-#define MCP2515_REG_REC            (0x1DU)
+#define MCP2515_REG_TEC             0x1CU
+#define MCP2515_REG_REC             0x1DU
 
 
 /* ============================================================================
@@ -69,13 +69,7 @@ extern "C" {
  *
  * Both fields occupy bits [7:5].
  */
-#define MCP2515_OPMODE_MASK               (0xE0U)  /* bits 7:5 */
-
-#define MCP2515_MODE_NORMAL               (0x00U)  /* 000 << 5 */
-#define MCP2515_MODE_SLEEP                (0x20U)  /* 001 << 5 */
-#define MCP2515_MODE_LOOPBACK             (0x40U)  /* 010 << 5 */
-#define MCP2515_MODE_LISTEN_ONLY          (0x60U)  /* 011 << 5 */
-#define MCP2515_MODE_CONFIG               (0x80U)  /* 100 << 5 */
+#define MCP2515_OPMODE_MASK         0xE0U  /* bits 7:5 */
 
 
 /* ============================================================================
@@ -109,29 +103,28 @@ extern "C" {
 
 
 /* ============================================================================
- * TX / RX BUFFER REGISTERS (Starter set)
+ * TX / RX BUFFER REGISTERS
  * ============================================================================
- * These will be needed for TX and RX milestones.
- * Start with TXB0/RXB0; add others later if needed.
+ * Start with TXB0/RXB0;
  */
 
 /* --- TX Buffer 0 Control and ID registers --- */
-#define MCP2515_REG_TXB0CTRL               (0x30U)
-#define MCP2515_REG_TXB0SIDH               (0x31U)
-#define MCP2515_REG_TXB0SIDL               (0x32U)
-#define MCP2515_REG_TXB0EID8               (0x33U)
-#define MCP2515_REG_TXB0EID0               (0x34U)
-#define MCP2515_REG_TXB0DLC                (0x35U)
-#define MCP2515_REG_TXB0D0                 (0x36U)  /* D0..D7 consecutive */
+#define MCP2515_REG_TXB0CTRL                0x30U
+#define MCP2515_REG_TXB0SIDH                0x31U
+#define MCP2515_REG_TXB0SIDL                0x32U
+#define MCP2515_REG_TXB0EID8                0x33U
+#define MCP2515_REG_TXB0EID0                0x34U
+#define MCP2515_REG_TXB0DLC                 0x35U
+#define MCP2515_REG_TXB0D0                  0x36U  /* D0..D7 consecutive */
 
 /* --- RX Buffer 0 Control and ID registers --- */
-#define MCP2515_REG_RXB0CTRL               (0x60U)
-#define MCP2515_REG_RXB0SIDH               (0x61U)
-#define MCP2515_REG_RXB0SIDL               (0x62U)
-#define MCP2515_REG_RXB0EID8               (0x63U)
-#define MCP2515_REG_RXB0EID0               (0x64U)
-#define MCP2515_REG_RXB0DLC                (0x65U)
-#define MCP2515_REG_RXB0D0                 (0x66U)  /* D0..D7 consecutive */
+#define MCP2515_REG_RXB0CTRL                0x60U
+#define MCP2515_REG_RXB0SIDH                0x61U
+#define MCP2515_REG_RXB0SIDL                0x62U
+#define MCP2515_REG_RXB0EID8                0x63U
+#define MCP2515_REG_RXB0EID0                0x64U
+#define MCP2515_REG_RXB0DLC                 0x65U
+#define MCP2515_REG_RXB0D0                  0x66U  /* D0..D7 consecutive */
 
 
 /* ============================================================================
